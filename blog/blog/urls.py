@@ -15,7 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from apps.post.views import agregarNoticia, logueo, registro, vision, mision, objetivo, nosotros, inicio
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('agregar_noticia/', agregarNoticia, name= 'agregar_noticia'),
+    path('index/', inicio, name= 'index'),
+    path('login/', logueo, name= 'login'),
+    path('register/', registro, name= 'register'),
+    path('vision/', vision, name= 'vision'),
+    path('mision/', mision, name= 'mision'),
+    path('objetivos/', objetivo, name= 'objetivos'),
+    path('nosotros/', nosotros, name= 'nosotros'),   
+    
 ]

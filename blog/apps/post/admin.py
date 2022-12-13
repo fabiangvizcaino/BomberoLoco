@@ -9,4 +9,11 @@ class CategoriaAdmin(admin.ModelAdmin):
     list_display = ('id','nombre','activado','fecha_creacion')
     list_filter = ('activado',)
 
+class PostAdmin(admin.ModelAdmin):
+    ordering = ('id','resumen','texto','imagen','categoria','publicado','fecha_creacion','usuario')
+    search_fields = ('id','resumen','texto','imagen','categoria__nombre','publicado','fecha_creacion')
+    list_display = ('titulo','resumen','imagen','categoria','publicado','fecha_creacion','usuario')
+    list_filter = ('categoria__nombre','publicado')
+
 admin.site.register(Categoria, CategoriaAdmin)
+admin.site.register(Post, PostAdmin)
