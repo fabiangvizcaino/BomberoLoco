@@ -14,8 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, re_path
-from apps.post.views import *
+from django.urls import path
+from apps.post.views import agregarNoticia, logueo, registro, vision, mision, objetivo, nosotros, inicio, contacto
 
 
 urlpatterns = [
@@ -26,11 +26,7 @@ urlpatterns = [
     path('register/', registro, name= 'register'),
     path('vision/', vision, name= 'vision'),
     path('mision/', mision, name= 'mision'),
-    path('objetivos/', objetivo, name= 'objetivos'),    
-    path('nosotros/', nosotros, name= 'nosotros'), 
-    #path('posteos', (MostrarPost.as_view()), name= 'posteo'),
-
-
-    #re_path('leer_posteo/(?P<id>\d+)$', leerPost, name= 'posteo'),
-    
+    path('objetivos/', objetivo, name= 'objetivos'),
+    path('nosotros/', nosotros, name= 'nosotros'),   
+    path('contacto/', contacto, name= 'contacto'),
 ]

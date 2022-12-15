@@ -130,4 +130,14 @@ def MostrarPost(View):
         elif fecha:
             posteos = Post.objects.filter(fecha_creacion=fecha)
         
+#PANTALLA CONTACTO
+def contacto(request):
+    if request.method == 'POST':
+        post_form = PostForm(request.POST or None, request.FILES or None)
+        if post_form.is_valid():
+            post_form.save()
+            return redirect('inicio')
+    else:
+        post_form = PostForm()
+    return render(request,'post/contacto.html',{'post_form':post_form})
 
