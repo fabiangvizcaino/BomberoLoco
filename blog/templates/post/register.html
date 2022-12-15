@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="es">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,75 +10,215 @@
     <link rel="icon" href="{% static 'img/logo.png' %}" type = "image/x-icon"/>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-</head>
+  
+  </head>
 
-<body>
-
+  <body>
     {% include 'post/navbar.html' %}
     
-    <div class="container py-2 h-100"> 
-        <form>
-            <!-- 2 column grid layout with text inputs for the first and last names -->
-            <div class="row mb-4">
-            <div class="col">
-                <div class="form-outline">
-                <input type="text" id="form6Example1" class="form-control" />
-                <label class="form-label" for="form6Example1">Nombre</label>
-                </div>
-            </div>
-            <div class="col">
-                <div class="form-outline">
-                <input type="text" id="form6Example2" class="form-control" />
-                <label class="form-label" for="form6Example2">Apellido</label>
-                </div>
-            </div>
-            </div>
+    <div class="container">
+      
+      <main>    
+        <div class="row g-5">
+          
+          <div class="col-md-7 col-lg-8">
+            <h4 class="mb-3">Registración</h4>
         
-            <!-- Text input -->
-            <div class="form-outline mb-4">
-            <input type="text" id="form6Example3" class="form-control" />
-            <label class="form-label" for="form6Example3">Company name</label>
-            </div>
-        
-            <!-- Text input -->
-            <div class="form-outline mb-4">
-            <input type="text" id="form6Example4" class="form-control" />
-            <label class="form-label" for="form6Example4">Dirección</label>
-            </div>
-        
-            <!-- Email input -->
-            <div class="form-outline mb-4">
-            <input type="email" id="form6Example5" class="form-control" />
-            <label class="form-label" for="form6Example5">Email</label>
-            </div>
-        
-            <!-- Number input -->
-            <div class="form-outline mb-4">
-            <input type="number" id="form6Example6" class="form-control" />
-            <label class="form-label" for="form6Example6">Teléfono</label>
-            </div>
-        
-            <!-- Message input -->
-            <div class="form-outline mb-4">
-            <textarea class="form-control" id="form6Example7" rows="4"></textarea>
-            <label class="form-label" for="form6Example7">Information Adicional</label>
-            </div>
-        
-            <!-- Checkbox -->
-            <div class="form-check d-flex justify-content-center mb-4">
-            <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
-            <label class="form-check-label" for="form6Example8"> Create an account? </label>
-            </div>
-        
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block mb-4">Place order</button>
-        </form>
+          <form class="needs-validation" novalidate>
+          <div class="row g-3">
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">Nombre/s</label>
+              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid first name is required.
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label">Apellido/s</label>
+              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="username" class="form-label">Usuario</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text">@</span>
+                <input type="text" class="form-control" id="username" placeholder="LioMessi" required>
+              <div class="invalid-feedback">
+                  El nombre de usuario es requerido.
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="messi10@gmail.com">
+              <div class="invalid-feedback">
+                Por favor ingrese un email válido.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="address" class="form-label">Dirección</label>
+              <input type="text" class="form-control" id="address" placeholder="Guemes N° 25" required>
+              <div class="invalid-feedback">
+                Por favor ingrese su dirección.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="address2" class="form-label">Teléfono<span class="text-muted">(Optional)</span></label>
+              <input type="text" class="form-control" id="address2" placeholder="3624-123456">
+            </div>
+
+            <div class="col-md-5">
+              <label for="country" class="form-label">Provincia</label>
+              <select class="form-select" id="provincia" required>
+                <option value="">Seleccione...</option>                
+                <option>Catamarca</option>
+                <option>Chaco</option>
+                <option>Cordoba</option>
+                <option>Corrientes</option>
+                <option>Formosa</option>                
+                <option>Jujuy</option>
+                <option>La Pampa</option>
+                <option>La Rioja</option>
+                <option>Mendoza</option>
+                <option>Misiones</option>
+                <option>Neuquén</option>
+                <option>Salta</option>
+                <option>Santa Cruz</option>
+                <option>Santa Fe</option>                
+                <option>Santiago del Estero</option>
+                <option>Tierra del Fuego</option>
+                <option>Tucumán</option>
+              </select>
+              <div class="invalid-feedback">
+                Por favor seleccione una provincia válida.
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <label for="state" class="form-label">Ciudad</label>
+              <select class="form-select" id="ciudad" required>
+                <option value="">Seleccione...</option>
+                <option>Avia Terai</option>                
+                <option>Barranqueras</option>
+                <option>Charata</option>
+                <option>Corrientes</option>
+                <option>Fontana</option>
+                <option>Formosa</option>
+                <option>Goya</option>
+                <option>Juan Jose Castelli</option>
+                <option>Pcia. Roque Saenz Peña</option>
+                <option>Posadas</option>
+                <option>Puerto Tirol</option>
+                <option>Puerto Vilelas</option>         
+                <option>Resistencia</option>
+                <option>Villa Angela</option>
+              </select>
+              <div class="invalid-feedback">
+                Por favor seleccione una ciudad válida.
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="zip" class="form-label">Código Postal</label>
+              <input type="text" class="form-control" id="zip" placeholder="3500" required>
+              <div class="invalid-feedback">
+                Código Postal requerido.
+              </div>
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address">
+            <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
+          </div>
+
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="save-info">
+            <label class="form-check-label" for="save-info">Save this information for next time</label>
+          </div>
+
+          <hr class="my-4">
+
+          <h4 class="mb-3">Payment</h4>
+
+          <div class="my-3">
+            <div class="form-check">
+              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+              <label class="form-check-label" for="credit">Credit card</label>
+            </div>
+            <div class="form-check">
+              <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+              <label class="form-check-label" for="debit">Debit card</label>
+            </div>
+            <div class="form-check">
+              <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+              <label class="form-check-label" for="paypal">PayPal</label>
+            </div>
+          </div>
+
+          <div class="row gy-3">
+            <div class="col-md-6">
+              <label for="cc-name" class="form-label">Name on card</label>
+              <input type="text" class="form-control" id="cc-name" placeholder="" required>
+              <small class="text-muted">Full name as displayed on card</small>
+              <div class="invalid-feedback">
+                Name on card is required
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="cc-number" class="form-label">Credit card number</label>
+              <input type="text" class="form-control" id="cc-number" placeholder="" required>
+              <div class="invalid-feedback">
+                Credit card number is required
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="cc-expiration" class="form-label">Expiration</label>
+              <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+              <div class="invalid-feedback">
+                Expiration date required
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="cc-cvv" class="form-label">CVV</label>
+              <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+              <div class="invalid-feedback">
+                Security code required
+              </div>
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+        </form>
+        
+          </div>
+    
+        </div>
+      </main>
+
+      <footer class="my-5 pt-5 text-muted text-center text-small"></footer>
 
     </div>
 
-    {% include 'post/footer.html' %}    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-</body>
+    <script src="form-validation.js"></script>
+
+    {% include 'post/footer.html' %}    
+  </body>
 </html>
