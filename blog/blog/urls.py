@@ -14,8 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+<<<<<<< HEAD
 from django.urls import path
 from apps.post.views import agregarNoticia, logueo, registro, vision, mision, objetivo, nosotros, inicio, contacto
+=======
+from django.urls import path, re_path
+from apps.post.views import *
+>>>>>>> df7bd9bad583c4ed42df7dda3a241106c97e1220
 
 
 urlpatterns = [
@@ -26,7 +31,17 @@ urlpatterns = [
     path('register/', registro, name= 'register'),
     path('vision/', vision, name= 'vision'),
     path('mision/', mision, name= 'mision'),
+<<<<<<< HEAD
     path('objetivos/', objetivo, name= 'objetivos'),
     path('nosotros/', nosotros, name= 'nosotros'),   
     path('contacto/', contacto, name= 'contacto'),
+=======
+    path('objetivos/', objetivo, name= 'objetivos'),    
+    path('nosotros/', nosotros, name= 'nosotros'), 
+    #path('posteos', (MostrarPost.as_view()), name= 'posteo'),
+
+
+    #re_path('leer_posteo/(?P<id>\d+)$', leerPost, name= 'posteo'),
+    
+>>>>>>> df7bd9bad583c4ed42df7dda3a241106c97e1220
 ]
