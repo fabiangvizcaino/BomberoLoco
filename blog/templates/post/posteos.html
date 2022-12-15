@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<div>
+
+    <div class="form-group">
+        <form action="#" method="POST">
+            {% csrf_token %}
+            <label for="solidSelect">Filtrar por categoria</label>
+            <select class="form-control input-solid" name="categoria" id="solidSelect">                
+            {for categoria in categorias %}
+                <option>{{categoria.nombre}}</option>
+            {% enfor %}
+            </select>
+
+            <input type="date" name="fecha" placeholder="Fecha">
+            <button type="submit" class="btn btn-danger">Filtrar</button>
+
+
+            
+        </form>
+    </div>
+
+    {% for post in posteos %}
+        <div class="card" style="width: 24rem;">
+            <img class= "card-img-top" src="/media/{{post.imagen}}" alt="imagen">
+            <div class="card-body">
+                <h5 class="card-title mb-2 fw-mediumbold">{{post.titulo}}</h5>
+                <p class="card-text">{{post.resumen}}</p>
+                
+                <!--
+                <a href="{% url 'posteo' post.id %}" class="btn btn-warning">Seguir Leyendo</a>
+                -->
+                
+            </div>
+        
+        </div>
+    {% endfor %}
+
+</div>
+
+{% endblock body %}
