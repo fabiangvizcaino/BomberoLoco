@@ -1,0 +1,105 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participa</title>
+    <link rel="icon" href="{% static 'img/logo.png' %}" type = "image/x-icon"/>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    
+  {% include 'post/navbar.html' %}
+
+  <section class="vh-100">
+        <div class="container py-2 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-10">
+              <div class="card" style="border-radius: 1rem;">
+                <div class="row g-0">
+                  <div class="col-md-6 col-lg-5 d-none d-md-block">
+                    
+                    <img src="{% static 'img/bombero4.jpg' %}" alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; width:500px; height: 500px;" />
+                  
+                  </div>
+                  <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                    <div class="card-body p-4 p-lg-5 text-black">
+      
+                      <form>
+      
+                        <div class="d-flex align-items-center mb-3 pb-1">
+                          <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+                          
+                        <!-- ANULADO X AHORA
+                          <span class="h1 fw-bold mb-0">BomberoLogo</span>-->  
+                        
+                        </div>
+      
+                        
+                          <div class="text-dark px-3 py-4 p-md-0 mx-md-3">
+                            <h4 class="mb-4">Información para Aspirantes a Bomberos</h4>
+                            
+                            <div class="text-dark px-2 py-3 p-md-0 mx-md-2">
+                              <h5 class="mb-3">Carpeta a presentar para Pre-inscripción:</h5>
+
+                              <ul style= "list-style-type:circle;">
+                                <li><p class="small mb-0" style="text-align: justify; margin-left:10px;">Fotocopia DNI actualizado ambos lados.</p>
+                                  
+                                </li>
+                                <li><p class="small mb-0" style="text-align:justify; margin-left:10px;">Certificado Psicofísico.</p>
+                                
+                                </li>
+                                <li><p class="small mb-0" style="text-align:justify; margin-left:10px;">Certificado domicilio.</p>
+                                  
+                                </li>
+                                <li><p class="small mb-0" style="text-align:justify; margin-left:10px;">Certificado buena conducta.</p>
+                                  
+                                </li>
+                                <li><p class="small mb-0" style="text-align: justify;margin-left:10px;">Fotocopia del título nivel primario y/o niveles superiores.</p>
+                                  
+
+                                </li>
+                                <li><p class="small mb-0" style="text-align: justify;margin-left:10px;">Fotocopia de carnet de conducir (opcional).</p>
+                                  
+
+                                </li>
+                                <li><p class="small mb-0" style="text-align: justify;margin-left:10px;">Cualquier otro dato que estime de interés adjuntar a la carpeta
+                                y presentar al cuartell.</p>
+                                </li>
+                              </ul>
+                            
+                            </div>
+
+                            <div class="text-dark px-3 py-4 p-md-0 mx-md-3">
+                              <h5 class="mb-4">Presentar la carpeta en el cuartel:</h5>
+                              <ul style= "list-style-type:circle;">
+                                <li><p class="small mb-0" style="text-align: justify; margin-left:10px;">Dirección: calle Santa Fe al 40. General José de San Martín. Chaco.</p>
+                                  <p></p>
+                                </li>
+
+                            </div>
+                          
+                          </div>
+                        
+                      </form>
+      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {% include 'post/footer.html' %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+</body>
+</html>
