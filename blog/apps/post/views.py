@@ -152,3 +152,25 @@ def participa(request):
     else:
         post_form = PostForm()
     return render(request,'post/participa.html',{'post_form':post_form})
+
+#PANTALLA PROYECTOS
+def proyectos(request):
+    if request.method == 'POST':
+        post_form = PostForm(request.POST or None, request.FILES or None)
+        if post_form.is_valid():
+            post_form.save()
+            return redirect('inicio')
+    else:
+        post_form = PostForm()
+    return render(request,'post/proyectos.html',{'post_form':post_form})
+
+#PANTALLA DOCUMENTOS
+def documentos(request):
+    if request.method == 'POST':
+        post_form = PostForm(request.POST or None, request.FILES or None)
+        if post_form.is_valid():
+            post_form.save()
+            return redirect('inicio')
+    else:
+        post_form = PostForm()
+    return render(request,'post/documentos.html',{'post_form':post_form})

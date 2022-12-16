@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from apps.post.views import agregarNoticia, logueo, registro, vision, mision, objetivo, nosotros, inicio, contacto, participa
+from apps.post.views import agregarNoticia, logueo, registro, vision, mision, objetivo, nosotros, inicio, contacto, participa, proyectos, documentos
 
 
 urlpatterns = [
@@ -30,4 +30,6 @@ urlpatterns = [
     path('nosotros/', nosotros, name= 'nosotros'),   
     path('contacto/', contacto, name= 'contacto'),
     path('participa/', participa, name= 'participa'),
+    path('proyectos/', proyectos, name= 'proyectos'),
+    path('documentos/', documentos, name= 'documentos'),
 ]
