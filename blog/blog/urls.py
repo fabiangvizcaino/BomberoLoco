@@ -25,11 +25,17 @@ urlpatterns = [
     path('register/', registro, name= 'register'),    
     path('vision/', vision, name= 'vision'),
     path('mision/', mision, name= 'mision'),
-    path('objetivos/', objetivo, name= 'objetivos'),    
-    path('nosotros/', nosotros, name= 'nosotros'), 
+    path('objetivos/', objetivo, name= 'objetivos'),
+    path('nosotros/', nosotros, name= 'nosotros'),   
+    path('contacto/', contacto, name= 'contacto'),
+    path('participa/', participa, name= 'participa'),
+    path('proyectos/', proyectos, name= 'proyectos'),
+    path('documentos/', documentos, name= 'documentos'),
+    path('donaciones/', donaciones, name= 'donaciones'),
     path('agregar_noticia/', agregarNoticia, name= 'agregar_noticia'),    
     #path('agregar_noticia/',(agregarNoticia.as_view()), name='agregar_noticia'),    
     path('agregar_evento/', agregarEvento, name= 'agregar_evento'),
     re_path('leer_post/(?P<id>\d+)/$', leerPost, name='posteo'),
-            
+
+
 ]

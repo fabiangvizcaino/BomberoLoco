@@ -6,8 +6,6 @@ import datetime
 
 # Create your views here.
 
-
-
 #PANTALLA DE INICIO
 # def inicio(request):
 #     listadoNoticias = Post.objects.all()        
@@ -20,15 +18,15 @@ import datetime
 
 
 #PANTALLA DE INICIO
-# def inicio(request):
-#     if request.method == 'POST':
-#         post_form = PostForm(request.POST or None, request.FILES or None)
-#         if post_form.is_valid():
-#             post_form.save()
-#             return redirect('inicio')
-#     else:
-#         post_form = PostForm()
-#     return render(request,'post/index.html',{'post_form':post_form})
+def inicio(request):
+    if request.method == 'POST':
+        post_form = PostForm(request.POST or None, request.FILES or None)
+        if post_form.is_valid():
+            post_form.save()
+            return redirect('inicio')
+    else:
+        post_form = PostForm()
+    return render(request,'post/index.html',{'post_form':post_form})
 
 
 #PANTALLA MOSTRAR NOTICIAS - INICIO
@@ -153,18 +151,6 @@ def nosotros(request):
 
 
 
-# #PANTALLA DE AGREGAR EVENTO
-def agregarEvento(request):
-    if request.method == 'POST':
-        post_form = PostForm(request.POST or None, request.FILES or None)
-        if post_form.is_valid():
-            post_form.save()
-            return redirect('index')
-    else:
-        post_form = PostForm()
-    return render(request,'post/agregar_evento.html',{'post_form':post_form})
-
-
 # #PANTALLA DE AGREGAR NOTICIA
 def agregarNoticia(request):
     if request.method == 'POST':
@@ -175,6 +161,109 @@ def agregarNoticia(request):
     else:
         post_form = PostForm()
     return render(request,'post/agregar_noticia.html',{'post_form':post_form})
+
+
+
+
+
+
+
+
+
+#PANTALLA NOSOTROS
+def MostrarPost(View):
+    
+    template_name = 'post/posteos.html'
+    
+    def get(self, request):
+        posteos = Post.objects.all()
+        categorias = Categoria.objects.all()
+        context = {
+            'posteos':posteos, 
+            'categorias':categorias
+        }
+        return render (request, self.template_name, context)
+    
+    def post(self, request):
+        Categoria = Categoria.objects.all()
+        cate = request.Post.get('categoria', None)
+        fecha = request.Post.get('fecha', None)
+        if cate and fecha:
+            posteos = Post.objects.filter(categoria__nombre=cate, fecha_creacion=fecha)
+        elif cate:
+            posteos = Post.objects.filter(categoria__nombre=cate)        
+        elif fecha:
+            posteos = Post.objects.filter(fecha_creacion=fecha)
+        
+#PANTALLA CONTACTO
+def contacto(request):
+    if request.method == 'POST':
+        post_form = PostForm(request.POST or None, request.FILES or None)
+        if post_form.is_valid():
+            post_form.save()
+            return redirect('inicio')
+    else:
+        post_form = PostForm()
+    return render(request,'post/contacto.html',{'post_form':post_form})
+
+
+#PANTALLA ASPIRANTES
+def participa(request):
+    if request.method == 'POST':
+        post_form = PostForm(request.POST or None, request.FILES or None)
+        if post_form.is_valid():
+            post_form.save()
+            return redirect('inicio')
+    else:
+        post_form = PostForm()
+    return render(request,'post/participa.html',{'post_form':post_form})
+
+#PANTALLA PROYECTOS
+def proyectos(request):
+    if request.method == 'POST':
+        post_form = PostForm(request.POST or None, request.FILES or None)
+        if post_form.is_valid():
+            post_form.save()
+            return redirect('inicio')
+    else:
+        post_form = PostForm()
+    return render(request,'post/proyectos.html',{'post_form':post_form})
+
+#PANTALLA DOCUMENTOS
+def documentos(request):
+    if request.method == 'POST':
+        post_form = PostForm(request.POST or None, request.FILES or None)
+        if post_form.is_valid():
+            post_form.save()
+            return redirect('inicio')
+    else:
+        post_form = PostForm()
+    return render(request,'post/documentos.html',{'post_form':post_form})
+
+#PANTALLA DONACIONES
+def donaciones(request):
+    if request.method == 'POST':
+        post_form = PostForm(request.POST or None, request.FILES or None)
+        if post_form.is_valid():
+            post_form.save()
+            return redirect('inicio')
+    else:
+        post_form = PostForm()
+    return render(request,'post/donaciones.html',{'post_form':post_form})
+
+
+
+#PANTALLA DE AGREGAR EVENTO
+def agregarEvento(request):
+    if request.method == 'POST':
+        post_form = PostForm(request.POST or None, request.FILES or None)
+        if post_form.is_valid():
+            post_form.save()
+            return redirect('index')
+    else:
+        post_form = PostForm()
+    return render(request,'post/agregar_evento.html',{'post_form':post_form})
+
 
 
 #VISTA AGREGAR NOTICIA
@@ -205,8 +294,5 @@ def agregarNoticia(request):
 #         }
 
 #         return render(request, self.template_name, context)
-
-
-
 
 
