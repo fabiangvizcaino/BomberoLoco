@@ -14,14 +14,14 @@ def inicio(request):
 
 #PANTALLA DE INICIO
 def inicio(request):
-     if request.method == 'POST':
-         post_form = PostForm(request.POST or None, request.FILES or None)
-         if post_form.is_valid():
-             post_form.save()
-             return redirect('inicio')
-     else:
-         post_form = PostForm()
-     return render(request,'post/index.html',{'post_form':post_form})
+    if request.method == 'POST':
+        post_form = PostForm(request.POST or None, request.FILES or None)
+        if post_form.is_valid():
+            post_form.save()
+            return redirect('inicio')
+    else:
+        post_form = PostForm()
+    return render(request,'post/index.html',{'post_form':post_form})
 
 
 #PANTALLA DE AGREGAR NOTICIA
@@ -141,8 +141,9 @@ def contacto(request):
         post_form = PostForm()
     return render(request,'post/contacto.html',{'post_form':post_form})
 
+
 #PANTALLA ASPIRANTES
-def aspirantes(request):
+def participa(request):
     if request.method == 'POST':
         post_form = PostForm(request.POST or None, request.FILES or None)
         if post_form.is_valid():
@@ -150,5 +151,26 @@ def aspirantes(request):
             return redirect('inicio')
     else:
         post_form = PostForm()
-    return render(request,'post/aspirantes.html',{'post_form':post_form})
+    return render(request,'post/participa.html',{'post_form':post_form})
 
+#PANTALLA PROYECTOS
+def proyectos(request):
+    if request.method == 'POST':
+        post_form = PostForm(request.POST or None, request.FILES or None)
+        if post_form.is_valid():
+            post_form.save()
+            return redirect('inicio')
+    else:
+        post_form = PostForm()
+    return render(request,'post/proyectos.html',{'post_form':post_form})
+
+#PANTALLA DOCUMENTOS
+def documentos(request):
+    if request.method == 'POST':
+        post_form = PostForm(request.POST or None, request.FILES or None)
+        if post_form.is_valid():
+            post_form.save()
+            return redirect('inicio')
+    else:
+        post_form = PostForm()
+    return render(request,'post/documentos.html',{'post_form':post_form})
