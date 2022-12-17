@@ -19,18 +19,17 @@ from apps.post.views import *
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('agregar_noticia/', agregarNoticia, name= 'agregar_noticia'),
-    path('index/', inicio, name= 'index'),
+    path('admin/', admin.site.urls),    
+    path('index/',(inicio.as_view()), name='index'),
     path('login/', logueo, name= 'login'),
-    path('register/', registro, name= 'register'),
+    path('register/', registro, name= 'register'),    
     path('vision/', vision, name= 'vision'),
     path('mision/', mision, name= 'mision'),
     path('objetivos/', objetivo, name= 'objetivos'),    
     path('nosotros/', nosotros, name= 'nosotros'), 
-    #path('posteos', (MostrarPost.as_view()), name= 'posteo'),
-
-
-    #re_path('leer_posteo/(?P<id>\d+)$', leerPost, name= 'posteo'),
-    
+    path('agregar_noticia/', agregarNoticia, name= 'agregar_noticia'),    
+    #path('agregar_noticia/',(agregarNoticia.as_view()), name='agregar_noticia'),    
+    path('agregar_evento/', agregarEvento, name= 'agregar_evento'),
+    re_path('leer_post/(?P<id>\d+)/$', leerPost, name='posteo'),
+            
 ]

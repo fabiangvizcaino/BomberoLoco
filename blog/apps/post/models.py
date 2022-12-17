@@ -33,3 +33,24 @@ class Post(models.Model):
     def __str__(self):
         return str(self.titulo)
 
+
+class Evento(models.Model):
+    id = models.AutoField(primary_key=True)
+    titulo = models.CharField(max_length=40, blank=False, null=False)
+    resumen = models.CharField(max_length=70, blank=False, null=False)
+    descripcion = models.TextField(max_length=500, blank=False, null=False)
+    lugar = models.CharField(max_length=70, blank=False, null=False)
+    modalidad = models.CharField(max_length=40, blank=False, null=False)
+    arancel = models.FloatField(max_length=10, blank=False, null=False)    
+    imagen = models.ImageField(upload_to='post', null=True)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    publicado = models.BooleanField(default=True)
+    fecha_evento = models.DateField(auto_now_add=True)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = 'Eventos'
+
+    def __str__(self):
+        return str(self.titulo)
+

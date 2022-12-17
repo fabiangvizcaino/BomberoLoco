@@ -15,5 +15,13 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('titulo','resumen','imagen','categoria','publicado','fecha_creacion','usuario')
     list_filter = ('categoria__nombre','publicado')
 
+class EventoAdmin(admin.ModelAdmin):
+    ordering = ('id','resumen','descripcion','imagen','categoria','publicado','fecha_evento','modalidad','arancel','usuario')
+    search_fields = ('id','resumen','descripcion','imagen','categoria__nombre','publicado','modalidad','fecha_evento')
+    list_display = ('titulo','resumen','imagen','categoria','publicado','fecha_evento','usuario')
+    list_filter = ('categoria__nombre','publicado')
+
+
 admin.site.register(Categoria, CategoriaAdmin)
 admin.site.register(Post, PostAdmin)
+admin.site.register(Evento, EventoAdmin)

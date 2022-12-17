@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Noticia</title>   
+    <title>Crear Evento</title>   
     <link rel="icon" href="{% static 'img/logo.png' %}" type = "image/x-icon"/>
 
     <!-- Fonts and icons -->
@@ -39,13 +39,13 @@
                 <p></p>
                 <p></p>
                 
-                <h5 class="fw-normal mb-3 pb-3" style="letter-spacing:3px;">Agregar Noticia</h5>
+                <h5 class="fw-normal mb-3 pb-3" style="letter-spacing:3px;">Agregar Evento</h5>
                 <div class="card-body">                    
-
-                    {{post_form.as_p}} 
-                                   
+                    
+                    {{post_form.as_p}}
+                                    
                     <button type="submit" class="btn btn-outline-danger me-2 btn-round">Guardar</button>
-                    <a href="{% url 'agregar_noticia' %}" class="btn btn-danger">Cancelar</a>
+                    <a href="{% url 'agregar_evento' %}" class="btn btn-danger">Cancelar</a>
                 </div>
             
             </div>
