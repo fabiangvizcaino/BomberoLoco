@@ -22,6 +22,14 @@ class EventoAdmin(admin.ModelAdmin):
     list_filter = ('categoria__nombre','publicado')
 
 
+class ComentarioAdmin(admin.ModelAdmin):
+    ordering = ('id','post__titulo','usuario','comentario','fecha_post','publicado')
+    search_fields = ('id','post__titulo','usuario__nombre','comentario','fecha_post','publicado')
+    list_display = ('comentario','post','fecha_post','usuario')
+    list_filter = ('post__titulo','publicado')
+
+
 admin.site.register(Categoria, CategoriaAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Evento, EventoAdmin)
+admin.site.register(Comentario, ComentarioAdmin)

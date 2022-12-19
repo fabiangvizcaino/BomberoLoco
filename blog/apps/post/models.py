@@ -54,3 +54,18 @@ class Evento(models.Model):
     def __str__(self):
         return str(self.titulo)
 
+
+
+class Comentario(models.Model):
+    id = models.AutoField(primary_key=True)    
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    comentario = models.TextField(max_length=500, blank=False, null=False)  
+    fecha_post = models.DateField(auto_now_add=True)
+    publicado = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name_plural = 'Comentarios'
+
+    def __str__(self):
+        return str(self.comentario)

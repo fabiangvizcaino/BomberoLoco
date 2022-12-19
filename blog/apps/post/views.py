@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.views.generic import View
+from django.urls import reverse_lazy
 from .models import *
 from .forms import PostForm
 import datetime
@@ -72,11 +74,12 @@ class inicio(View):
 def leerPost(request, id):
     if request.method=='GET':
         post = Post.objects.get(id=id)
+        comentarios = Comentario.objects.filter(post=id)
         context = {
-            'post': post
+            'post': post,
+            'comentarios':comentarios
         }
-    return render(request,'post/posteo.html', context)
-
+    return render(request, 'post/posteo.html', context)
 
 #PANTALLA DE LOGUEO
 def logueo(request):
@@ -296,3 +299,13 @@ def agregarEvento(request):
 #         return render(request, self.template_name, context)
 
 
+@login_required
+def comentar_Post(request):
+
+    com = request.POST.get('comentario',None)
+    usu = request.user
+    noti = request.POST.get('id_post', None)
+    postb = Post.objects.get(id = noti) 
+    Comentario.objects.create(usuario = usu, post = postb, comentario = com, fecha_post = datetime.datetime.today(), publicado = True)
+
+    return redirect(reverse_lazy('posteo', kwargs={'id': noti}))

@@ -24,7 +24,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="../index/">Inicio</a>
+                <a class="nav-link active" aria-current="page" href="../../index/">Inicio</a>
               </li>
 
               <li class="nav-item dropdown">
@@ -32,11 +32,11 @@
                   Nosotros
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="../nosotros/">Quienes Somos</a></li>
-                  <li><a class="dropdown-item" href="../mision/">Misión</a></li>
-                  <li><a class="dropdown-item" href="../vision/">Visión</a></li>
-                  <li><a class="dropdown-item" href="../objetivos/">Objetivos</a></li>
-                  <li><a class="dropdown-item" href="../proyectos/">Proyectos</a></li>                  
+                  <li><a class="dropdown-item" href="../../nosotros/">Quienes Somos</a></li>
+                  <li><a class="dropdown-item" href="../../mision/">Misión</a></li>
+                  <li><a class="dropdown-item" href="../../vision/">Visión</a></li>
+                  <li><a class="dropdown-item" href="../../objetivos/">Objetivos</a></li>
+                  <li><a class="dropdown-item" href="../../proyectos/">Proyectos</a></li>                  
                 </ul>
               </li>
 
@@ -45,10 +45,10 @@
                   Recursos
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <!--<li><a class="dropdown-item" href="#">Fotos</a></li>
+                  <!-- <li><a class="dropdown-item" href="#">Fotos</a></li>
                   <li><a class="dropdown-item" href="#">Videos</a></li>
                   <li><hr class="dropdown-divider"></li>-->
-                  <li><a class="dropdown-item" href="../documentos/">Documentos</a></li>            
+                  <li><a class="dropdown-item" href="../../documentos/">Documentos</a></li>            
                 </ul>
               </li>
 
@@ -57,16 +57,19 @@
                   Participá
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="../participa">Inscripción Aspirantes</a></li>                  
+                  <li><a class="dropdown-item" href="../../participa">Inscripción Aspirantes</a></li>                  
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="../donaciones">Donaciones</a></li>
+                  <li><a class="dropdown-item" href="../../donaciones">Donaciones</a></li>
                 </ul>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="../contacto/">Contacto</a>
+                <a class="nav-link" href="../../contacto/">Contacto</a>
               </li>
               
+
+              
+
               {% if user.is_authenticated %}
                 {% if user.is_staff %}
                   <li class="nav-item dropdown">
@@ -74,9 +77,8 @@
                       Administracion
                     </a>                
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="../agregar_noticia/">Agregar Noticia</a></li>
-                      <li><a class="dropdown-item" href="../agregar_evento/">Agregar Evento</a></li>
-
+                      <li><a class="dropdown-item" href="../../agregar_noticia/">Agregar Noticia</a></li>
+                      <li><a class="dropdown-item" href="../../agregar_evento/">Agregar Evento</a></li>
                       <!-- BUSCAR COMO HABILITAR Y DESABILITAR SOLO PARA EL ADMIN
                       <li><a class="dropdown-item" href="#">Agregar Evento</a></li>
                       <li><hr class="dropdown-divider"></li>
@@ -86,24 +88,22 @@
                     </ul>
                   </li>
                 {% endif %}
-              {% endif %}
+              {% endif %}              
             </ul>
 
-              {% if user.is_authenticated %}
+            {% if user.is_authenticated %}
+            <input type="text" class="form-control me-2" id="usuario" value="{{ user.get_username }}" style="width: 250px; background-color: white;" disabled="true">
+            <a href="{% url 'logout' %}" class="btn btn-danger me-2" style="width: 130px;">Salir</a>
+            {% else %}
+            
+            <form class="d-flex" action="/accounts/login">            
+              <button type="submit" class="btn btn-outline-danger me-2">Iniciar Sesión</button>
+            </form>           
 
-                <input type="text" class="form-control me-2" id="usuario" value="{{ user.get_username }}" style="width: 250px; background-color: white;" disabled="true">
-                <a href="{% url 'logout' %}" class="btn btn-danger me-2" style="width: 130px;">Salir</a>
-
-              {% else %}
-                
-                <form class="d-flex" action="/accounts/login">            
-                  <button type="submit" class="btn btn-outline-danger me-2">Iniciar Sesión</button>
-                </form>           
-    
-              {% endif %}
+            {% endif %}
 
           </div>
-        </div>          
+        </div>
       </nav>
                       
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

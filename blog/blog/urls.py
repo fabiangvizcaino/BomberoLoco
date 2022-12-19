@@ -18,12 +18,17 @@ from django.urls import path, re_path
 from django.conf.urls.static import static
 from django.conf import settings
 from apps.post.views import *
+from apps.usuarios.views import *
+from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
+
 
 
 urlpatterns = [
+    path('accounts/login/', Login.as_view(), name= 'login'),
+    path('logout/', logoutUsuario, name='logout'),
+    path('registro/', RegistroUsuario.as_view(), name='registro'),    
     path('admin/', admin.site.urls),    
-    path('index/',(inicio.as_view()), name='index'),
-    path('login/', logueo, name= 'login'),
+    path('index/',(inicio.as_view()), name='index'),    
     path('register/', registro, name= 'register'),    
     path('vision/', vision, name= 'vision'),
     path('mision/', mision, name= 'mision'),
@@ -38,6 +43,7 @@ urlpatterns = [
     #path('agregar_noticia/',(agregarNoticia.as_view()), name='agregar_noticia'),    
     path('agregar_evento/', agregarEvento, name= 'agregar_evento'),
     re_path('leer_post/(?P<id>\d+)/$', leerPost, name='posteo'),
+    path('comentar/', comentar_Post, name='comentar'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
