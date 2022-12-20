@@ -45,6 +45,8 @@ urlpatterns = [
     re_path('leer_post/(?P<id>\d+)/$', leerPost, name='posteo'),
     path('comentar/', comentar_Post, name='comentar'),
     path('politicas/', politicas, name= 'politicas'),
+    path('index/',(inicio.as_view()), name='index2'),
+  
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
