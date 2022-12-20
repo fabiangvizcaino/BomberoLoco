@@ -173,6 +173,9 @@ def agregarNoticia(request):
 
 
 
+
+
+
 #PANTALLA NOSOTROS
 def MostrarPost(View):
     
@@ -309,3 +312,14 @@ def comentar_Post(request):
     Comentario.objects.create(usuario = usu, post = postb, comentario = com, fecha_post = datetime.datetime.today(), publicado = True)
 
     return redirect(reverse_lazy('posteo', kwargs={'id': noti}))
+
+    #PANTALLA POLÍTICAS DE PRIVACIDAD
+def politicas(request):
+    if request.method == 'POST':
+        post_form = PostForm(request.POST or None, request.FILES or None)
+        if post_form.is_valid():
+            post_form.save()
+            return redirect('inicio')
+    else:
+        post_form = PostForm()
+    return render(request,'post/politicas.html',{'post_form':post_form})

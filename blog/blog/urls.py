@@ -44,6 +44,7 @@ urlpatterns = [
     path('agregar_evento/', agregarEvento, name= 'agregar_evento'),
     re_path('leer_post/(?P<id>\d+)/$', leerPost, name='posteo'),
     path('comentar/', comentar_Post, name='comentar'),
+    path('politicas/', politicas, name= 'politicas'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
