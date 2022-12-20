@@ -10,7 +10,7 @@ class PostForm(forms.ModelForm):
         fields = ['titulo','resumen','texto','imagen','categoria','usuario']
 
 
-class PostForm(forms.ModelForm):
+class PostForme(forms.ModelForm):
     class Meta:
         model = Evento
         fields = ['titulo','resumen','descripcion','lugar','modalidad','arancel','imagen','categoria','usuario']

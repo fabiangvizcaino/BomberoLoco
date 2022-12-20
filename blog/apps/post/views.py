@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import View
 from django.urls import reverse_lazy
 from .models import *
-from .forms import PostForm
+from .forms import PostForm, PostForme
 import datetime
 
 # Create your views here.
@@ -256,15 +256,15 @@ def donaciones(request):
 
 
 
-#PANTALLA DE AGREGAR EVENTO
+#FUNCION DE AGREGAR EVENTO
 def agregarEvento(request):
     if request.method == 'POST':
-        post_form = PostForm(request.POST or None, request.FILES or None)
+        post_form = PostForme(request.POST or None, request.FILES or None)
         if post_form.is_valid():
             post_form.save()
             return redirect('index')
     else:
-        post_form = PostForm()
+        post_form = PostForme()
     return render(request,'post/agregar_evento.html',{'post_form':post_form})
 
 
