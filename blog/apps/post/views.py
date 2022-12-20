@@ -313,7 +313,7 @@ def comentar_Post(request):
 
     return redirect(reverse_lazy('posteo', kwargs={'id': noti}))
 
-    #PANTALLA POLÍTICAS DE PRIVACIDAD
+#PANTALLA POLÍTICAS DE PRIVACIDAD
 def politicas(request):
     if request.method == 'POST':
         post_form = PostForm(request.POST or None, request.FILES or None)
@@ -323,3 +323,23 @@ def politicas(request):
     else:
         post_form = PostForm()
     return render(request,'post/politicas.html',{'post_form':post_form})
+
+
+
+#VISTA AGREGAR CATEGORIA
+class agregarCategoria(View):
+    template_name = 'post/agregar_categoria.html'
+
+    def get(self, request):   
+        return render(request, self.template_name, {'categorias': ''})
+
+    def post(self, request):
+        
+        cate = request.POST.get('categoria', None)        
+        fecha = datetime.datetime.today()        
+
+        Categoria.objects.create(nombre=cate, activado=True, fecha_creacion=fecha)
+
+        return render(request, self.template_name)
+
+        

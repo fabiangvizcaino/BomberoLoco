@@ -40,12 +40,13 @@ urlpatterns = [
     path('documentos/', documentos, name= 'documentos'),
     path('donaciones/', donaciones, name= 'donaciones'),
     path('agregar_noticia/', agregarNoticia, name= 'agregar_noticia'),    
-    #path('agregar_noticia/',(agregarNoticia.as_view()), name='agregar_noticia'),    
+    #path('agregar_noticia/',(agregarNoticia.as_view()), name='agregar_noticia'),
     path('agregar_evento/', agregarEvento, name= 'agregar_evento'),
     re_path('leer_post/(?P<id>\d+)/$', leerPost, name='posteo'),
     path('comentar/', comentar_Post, name='comentar'),
     path('politicas/', politicas, name= 'politicas'),
     path('index/',(inicio.as_view()), name='index2'),
+    path('agregar_categoria/',(agregarCategoria.as_view()), name='agregar_categoria'),
   
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
