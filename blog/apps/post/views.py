@@ -271,37 +271,6 @@ def agregarEvento(request):
     return render(request,'post/agregar_evento.html',{'post_form':post_form})
 
 
-
-#VISTA AGREGAR NOTICIA
-# class agregarNoticia(View):
-#     template_name = 'post/agregar_noticia.html'
-
-#     def get(self, request):
-#         categorias = Categoria.objects.all()        
-#         return render(request, self.template_name, {'categorias': categorias})
-
-#     def post(self, request):
-        
-#         titulo = request.POST.get('titulo', None)
-#         resumen = request.POST.get('resumen', None)
-#         texto = request.POST.get('texto', None)
-#         imagen = request.POST.get('imagen', None)
-#         categoria = request.POST.get('categoria', None)
-#         usuario = request.POST.get('usuario', None)        
-#         #fecha_alta = datetime.datetime.today()
-                
-#         context = {
-#            'titulo': titulo,           
-#            'resumen': resumen,
-#            'texto': texto,
-#            'imagen': imagen,
-#            'categoria': categoria,
-#            'usuario': usuario
-#         }
-
-#         return render(request, self.template_name, context)
-
-
 @login_required
 def comentar_Post(request):
 
@@ -325,7 +294,6 @@ def politicas(request):
     return render(request,'post/politicas.html',{'post_form':post_form})
 
 
-
 #VISTA AGREGAR CATEGORIA
 class agregarCategoria(View):
     template_name = 'post/agregar_categoria.html'
@@ -342,4 +310,27 @@ class agregarCategoria(View):
 
         return render(request, self.template_name)
 
+
+# #VISTA AGREGAR NOTICIA
+# class agregarNoticia2(View):
+#     template_name = 'post/agregar_noticia2.html'
+
+#     def get(self, request):
+#         categorias = Categoria.objects.all()        
+#         return render(request, self.template_name, {'categorias': categorias})
+
+
+#     def post(self, request):
         
+#         titu = request.POST.get('titulo', None)
+#         resu = request.POST.get('resumen', None)
+#         text = request.POST.get('texto', None)
+#         figura = request.POST.get('imagen', None)
+#         nomcate = request.POST.get('categoria', None)
+#         idcate = Categoria.objects.filter(nombre = nomcate)
+#         fecha = datetime.datetime.today()
+#         usu = request.POST.get('usuario', None)        
+               
+#         Post.objects.create(titulo=titu, resumen=resu, texto=text, imagen=figura, categoria=idcate, publicado=True, fecha_creacion=fecha, usuario=usu)
+
+#         return render(request, self.template_name)

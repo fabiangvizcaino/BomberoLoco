@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Crear Noticia</title>   
+        <link rel="icon" href="{% static 'img/logo.png' %}" type = "image/x-icon"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    
+    {% include 'navbar.html' %}
+    
+    <div class="container py-2 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-10">
+
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="card" style="border-radius: 1rem;">        
+                        <p></p>
+                        <p></p>
+                        
+                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing:3px;">&nbsp;&nbsp; Agregar Noticia</h5>
+                        <div class="card-body">
+                            
+                            <div class="form-group">
+
+                                <div class="col-12">
+                                    <label for="address" class="form-label">Título</label>
+                                    <input type="text" class="form-control" id="titulo" name="titulo">
+                                </div>
+                                
+                                <br>
+                                <div class="col-12">
+                                    <label for="address" class="form-label">Resumen</label>
+                                    <input type="text" class="form-control" id="resumen" name="resumen">
+                                </div>
+                                
+                                <br>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Texto</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="texto"></textarea>
+                                </div>
+                                
+                                
+                                <div class="upload">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Imagen</label>
+                                    <br>
+                                    <input type="file" name="imagen">                                   
+                                    
+                                </div>
+
+                                <br>
+                                <label for="country" class="form-label">Categoria</label>
+                                <select class="form-select" id="categoria" name="categoria" style="width: 250px;">
+                                    {% for categoria in categorias %}
+                                        <option>{{categoria.nombre}}</option>
+                                    {% endfor %}
+                                </select>
+                                
+                                <br>
+                                <div class="col-md-4">
+                                    <label for="state" class="form-label">Usuario</label>
+                                    <input type="text" class="form-control me-2" id="usuario" value="{{ user.get_username }}" style="width: 250px; background-color: white;" disabled="true">                            
+                                </div>
+
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-danger me-2">Aceptar</button>
+                            <br><br>
+                            <a href="{% url 'index' %}">Volver</a>
+                            <br><br>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    {% include 'footer.html' %}
+   
+</body>
+</html>
